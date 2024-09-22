@@ -3,10 +3,10 @@ from datetime import datetime
 
 uri = "mongodb+srv://emessonsilva:uVhLRgl9mqGeGsRZ@clashroyale.ctakw.mongodb.net/?retryWrites=true&w=majority&appName=clashroyale"
 
-# Conectar ao MongoDB Atlas
+# conecta ao MongoDB Atlas
 client = MongoClient(uri) 
 
-# Acesse o banco de dados e a collection
+# acessa o banco de dados e a collection
 battles_collection = client['clashroyale']['battles']
 
 def calculate_win_loss_percentage_per_battle(card_id):
@@ -34,7 +34,7 @@ def calculate_win_loss_percentage_per_battle(card_id):
         elif battle['vencedor'] == battle['nickname_jogador_2'] and card_id in [battle[f'p2c{i}'] for i in range(1, 9)]:
             wins += 1
 
-    # Calcular a porcentagem de vitórias e derrotas
+    # calcula a porcentagem de vitórias e derrotas
     if total_battles > 0:
         win_percentage = (wins / total_battles) * 100
         loss_percentage = 100 - win_percentage
