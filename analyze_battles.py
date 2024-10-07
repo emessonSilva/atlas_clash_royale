@@ -1,7 +1,7 @@
 from datetime import datetime
 from db_connection import client
 
-# Acesse o banco de dados e a collection
+# acessa o banco de dados e a collection
 battles_collection = client['clashroyale']['battles']
 
 
