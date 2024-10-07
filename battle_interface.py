@@ -162,6 +162,24 @@ def mostrar_top_5_jogadores():
     resultado = "\n".join([f'{doc["_id"]}: {doc["max_trofeus"]}' for doc in top_players])
     messagebox.showinfo("Top 5 Jogadores com Mais Troféus", resultado)
 
+
+def mostrar_batalha_vitoria_jogador_2_menos_torres():
+    lowest_tower_win = battles_collection.find_one(
+        {"vitoria_jogador_2": 1},
+        sort=[("torres_jogador_2", 1)]
+    )
+
+    if lowest_tower_win:
+        resultado = f'Batalha em que o Jogador 2 venceu com menos torres destruídas:\n' \
+                    f'ID da Batalha: {lowest_tower_win["_id"]}\n' \
+                    f'Jogador 1: {lowest_tower_win["nickname_jogador_1"]}, Troféus: {lowest_tower_win["trofeus_jogador_1"]}, Torres Destruídas: {lowest_tower_win["torres_jogador_1"]}\n' \
+                    f'Jogador 2: {lowest_tower_win["nickname_jogador_2"]}, Troféus: {lowest_tower_win["trofeus_jogador_2"]}, Torres Restantes: {lowest_tower_win["torres_jogador_2"]}'
+    else:
+        resultado = "Nenhuma batalha encontrada onde o Jogador 2 venceu."
+
+    messagebox.showinfo("Batalha com Vitória do Jogador 2 com menos torres", resultado)
+
+
 def mostrar_taxa_vitorias_posicao_jogador_1():
     taxa_vitorias_posicao_jogador1 = battles_collection.aggregate([
         {
@@ -243,6 +261,8 @@ def on_card_click(card_name):
         mostrar_decks_vitoriosos()
     elif card_name == "top_jogadores":
         mostrar_top_5_jogadores()
+    elif card_name == "vitoria_jogador_2_menos_torres":
+        mostrar_batalha_vitoria_jogador_2_menos_torres()
     elif card_name == "taxa_vitorias_jogador_1":
         mostrar_taxa_vitorias_posicao_jogador_1()
     elif card_name == "taxa_vitorias_jogador_2":
@@ -257,6 +277,7 @@ cards_info = [
     {"image_filename": "design.png", "name": "torres_jogador_2"},
     {"image_filename": "design.png", "name": "decks_vitoriosos"},
     {"image_filename": "design.png", "name": "top_jogadores"},
+    {"image_filename": "design.png", "name": "vitoria_jogador_2_menos_torres"},
     {"image_filename": "design.png", "name": "taxa_vitorias_jogador_1"},
     {"image_filename": "design.png", "name": "taxa_vitorias_jogador_2"},
 ]
@@ -271,8 +292,8 @@ for index, card in enumerate(cards_info):
     button.image = img 
 
     # Calcular a posição (linha e coluna) do botão
-    row = index // 4  
-    column = index % 4  
+    row = index // 5  
+    column = index % 5  
     button.grid(row=row, column=column, padx=10, pady=10)  
 
 app.mainloop()

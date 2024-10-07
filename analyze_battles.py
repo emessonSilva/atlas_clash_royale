@@ -268,7 +268,7 @@ for player in top_players:
 print('----------------------------------------------------------------------------------------------------------------')
 
 
-# Batalha em que o Jogador 2 venceu com menos torres destruídas
+# Batalha em que o Jogador 2 venceu com menos torres
 
 """
 o comando find_one busca a batalha em que o Jogador 2 venceu, especificado pela condição { "vitoria_jogador_2": 1 }. 
@@ -282,7 +282,7 @@ lowest_tower_win = battles_collection.find_one(
     sort=[("torres_jogador_2", 1)]
 )
 
-print('Batalha em que o Jogador 2 venceu com menos torres destruídas\n')
+print('Batalha em que o Jogador 2 venceu com menos torres\n')
 print(lowest_tower_win)
 
 
