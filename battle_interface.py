@@ -251,14 +251,14 @@ def on_card_click(card_name):
 image_directory = "images"
 
 cards_info = [
-    {"image_filename": "designer.png", "name": "total_battles"},
-    {"image_filename": "designer.png", "name": "porcentagem_vitorias_derrotas"},
-    {"image_filename": "designer.png", "name": "torres_jogador_1"},
-    {"image_filename": "designer.png", "name": "torres_jogador_2"},
-    {"image_filename": "designer.png", "name": "decks_vitoriosos"},
-    {"image_filename": "designer.png", "name": "top_jogadores"},
-    {"image_filename": "designer.png", "name": "taxa_vitorias_jogador_1"},
-    {"image_filename": "designer.png", "name": "taxa_vitorias_jogador_2"},
+    {"image_filename": "design.png", "name": "total_battles"},
+    {"image_filename": "design.png", "name": "porcentagem_vitorias_derrotas"},
+    {"image_filename": "design.png", "name": "torres_jogador_1"},
+    {"image_filename": "design.png", "name": "torres_jogador_2"},
+    {"image_filename": "design.png", "name": "decks_vitoriosos"},
+    {"image_filename": "design.png", "name": "top_jogadores"},
+    {"image_filename": "design.png", "name": "taxa_vitorias_jogador_1"},
+    {"image_filename": "design.png", "name": "taxa_vitorias_jogador_2"},
 ]
 
 # Adicionando botões no grid
