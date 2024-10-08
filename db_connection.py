@@ -11,7 +11,7 @@ db = client['clashroyale']
 # Carregar o arquivo CSV de batalhas
 battles_df = pd.read_csv('clash_royale_battles.csv')
 
-# Obter as coleções MongoDB
+# Obter a coleção do MongoDB
 battles_collection = db['battles']
 
 
